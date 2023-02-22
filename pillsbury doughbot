@@ -1,0 +1,42 @@
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { time } = require('console');
+const Discord = require('discord.js');
+const { readFile, readFileSync } = require('fs');
+const { exit } = require('process');
+const { stringify } = require('querystring');
+const { EventEmitter } = require('stream');
+
+doughs = ['https://cdn.quotesgram.com/small/8/0/1754961829-Pillsbury.jpg',
+'https://s2.r29static.com/bin/entry/cd0/0,0,2000,1050/x,80/1817676/image.jpg',
+'https://i.ebayimg.com/images/g/Ge0AAOSwYXtZyAjL/s-l500.jpg',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdNZ55iI835Zj8cADlMyeoC5m3q-rRxrwosA&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv6-ncBmeDwoVU8uzkzCzmPaiQZph2UwpwQw&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBd0AyTyToTuCyAuIbZw-ZS3dw7aoVBAAeAg&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9eJzPb4zZ2Ka0R2OmdOY_-TjYOsYXTqIBvQ&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9MC0Su6_1ah1gIzg0003cQvPbEFOAJ1uJg&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkoeN_h3bFabj_9CoLzT-_9l4T5Zd15NTHdw&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQicGD71HvLOAiO8Q1iyc71OHXPF9VFE_bn6g&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY0W5KyOoUlJssCEcRqK0AuaucG6k5HB6W5A&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwNfvIzVBnWRAVIjaO71gbVQK_AMUuOCZipA&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiW7baL3SjpRCBWf84yiMNd0GbPlOs4G_KIQ&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOYdwMkIcDiS2InsmeAm8Dl4AGIGgqyVZkug&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRtj0rBNqpzfNr9x58i_yqncLfBR5xNgk_tA&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0STkT3uGxAPlOaoRLgyR_azrOd2xyo6PrCQ&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkWHTeIymPejdcgmQkxkDF1kXvEJD6_85iOc1uDlTdzlBqocCgX_NMG-nvHd4OfVmvD4&usqp=CAU',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1BFYejl4POxoqoMDDjbUR6-SuH_bGwmeKmw&usqp=CAU'
+]
+
+
+const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.GUILDS] });
+
+
+
+
+    client.on('messageCreate', async msg => {
+            if(msg.content === 'dough'){    
+                var dough = doughs[Math.floor(Math.random()*doughs.length)];  
+                msg.reply(dough)
+            }
+            if(msg.content === 'are you alive'){msg.reply('**yes**                                              i live in your basement')}
+        });
+    client.login('OTk1ODc4OTk5NjkzNzI1Njk3.GkfWC-.0EGADV0RJHsQthmCOYir0u9IvdUacWhMVVs8UM')
